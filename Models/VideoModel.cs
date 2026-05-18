@@ -1,0 +1,11 @@
+﻿namespace tnsvideos.Models
+{
+    public class VideoModel
+    {
+        public int Id { get; set; }
+        public string Titulo { get; set; }
+        public string Descripcion { get; set; }
+        public string Url { get; set; }
+
+    }
+}
