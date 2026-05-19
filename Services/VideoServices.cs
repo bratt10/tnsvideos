@@ -22,10 +22,6 @@ namespace tnsvideos.Services
             {
                 throw new Exception("La URL no puede estar vacia");
             }
-            if (!videoingreso.Url.Contains("youtube"))
-            {
-                throw new Exception("Debe ser video de youtube");
-            }
 
             return _videorepository.crearVideo(videoingreso);
         }
@@ -60,10 +56,6 @@ namespace tnsvideos.Services
             if (string.IsNullOrWhiteSpace(videoActualizado.Url))
             {
                 throw new Exception("La URL no puede estar vacia");
-            }
-            if (!videoActualizado.Url.Contains("youtube"))
-            {
-                throw new Exception("Debe ser video de youtube");
             }
             return _videorepository.actualizarVideo(id, videoActualizado);
         }
