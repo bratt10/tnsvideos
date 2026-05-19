@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using tnsvideos.Models;
 using tnsvideos.Services;
+
 namespace tnsvideos.Controllers
 {
     [ApiController]
@@ -15,17 +16,58 @@ namespace tnsvideos.Controllers
         }
 
         [HttpPost]
-        public ActionResult <VideoModel> PostVideo([FromBody] VideoModel video)
+        public ActionResult<VideoModel> PostVideo([FromBody] VideoModel video)
         {
             try
             {
                 var crearvideo = _videoServices.crearVideo(video);
                 return StatusCode(201, crearvideo);
-
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult<List<VideoModel>> GetVideos()
+        {
+            try
+            {
+                var listavideos = _videoServices.mostrarVideos();
+                return Ok(listavideos);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteVideos(int id)
+        {
+            try
+            {
+                _videoServices.eliminarVideo(id);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult<VideoModel> UpdateVideo(int id, [FromBody] VideoModel video)
+        {
+            try
+            {
+                var videoupdate = _videoServices.actualizarVideo(id, video);
+                return Ok(videoupdate);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
             }
         }
     }
