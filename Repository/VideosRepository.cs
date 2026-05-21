@@ -21,6 +21,11 @@ namespace tnsvideos.Repository
         {
             return _acciones.Videos?.ToList() ?? new List<VideoModel>();
         }
+
+        public VideoModel? obtenerVideoPorId(int id)
+        {
+            return _acciones.Videos.Find(id);
+        }
         public void eliminarVideo(int id)
         {
             var video = _acciones.Videos.Find(id);
@@ -46,5 +51,7 @@ namespace tnsvideos.Repository
             }
             return video;
         }
+
+
     }
 }

@@ -59,7 +59,15 @@ namespace tnsvideos.Services
             }
             return _videorepository.actualizarVideo(id, videoActualizado);
         }
+
+        public VideoModel? obtenerVideoPorId(int id)
+        {
+            var video = _videorepository.obtenerVideoPorId(id);
+            if (video == null)
+            {
+                throw new Exception("El video no existe");
+            }
+            return video;
+        }
     }
 }
-        
-
