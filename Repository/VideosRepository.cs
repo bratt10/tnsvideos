@@ -51,7 +51,23 @@ namespace tnsvideos.Repository
             }
             return video;
         }
+        public VideoModel? obtenerVideoPorTitulo(string titulo)
+        {
+            return _acciones.Videos
+                .FirstOrDefault(v => v.Titulo.ToLower().Contains(titulo.ToLower()));
+        }
+        public VideoModel? inactivarVideo(int id)
+        {
+            var video = _acciones.Videos.Find(id);
 
+            if (video == null)
+            {
+                return null;
+            }
+            video.Activo = false;
+            _acciones.SaveChanges();
+            return video; 
+        }
 
     }
 }

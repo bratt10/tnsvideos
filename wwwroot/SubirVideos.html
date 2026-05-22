@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TNS — Videos</title>
+  <link rel="stylesheet" href="css/SubirVideo.css"/>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-wrap">
+      <div class="logo-circle">⚡</div>
+      <span class="logo-text">tns</span>
+    </div>
+    <button class="hamburger">☰</button>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-item" onclick="toggleNav(this)">
+      <span class="nav-icon">🗂️</span>
+      <span class="nav-label">TABLAS</span>
+      <span class="nav-chevron">▾</span>
+    </div>
+    <div class="nav-sub"></div>
+
+    <div class="nav-item" onclick="toggleNav(this)">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">CONTABILIDAD</span>
+      <span class="nav-chevron">▾</span>
+    </div>
+    <div class="nav-sub"></div>
+
+    <div class="nav-item" onclick="toggleNav(this)">
+      <span class="nav-icon">💲</span>
+      <span class="nav-label">FACTURACIÓN</span>
+      <span class="nav-chevron">▾</span>
+    </div>
+    <div class="nav-sub"></div>
+
+    <div class="nav-item" onclick="toggleNav(this)">
+      <span class="nav-icon">💼</span>
+      <span class="nav-label">CARTERA</span>
+      <span class="nav-chevron">▾</span>
+    </div>
+    <div class="nav-sub"></div>
+
+    <div class="nav-item" onclick="toggleNav(this)">
+      <span class="nav-icon">📦</span>
+      <span class="nav-label">INVENTARIO</span>
+      <span class="nav-chevron">▾</span>
+    </div>
+    <div class="nav-sub"></div>
+
+    <div class="nav-item" onclick="toggleNav(this)">
+      <span class="nav-icon">💰</span>
+      <span class="nav-label">TESORERÍA</span>
+      <span class="nav-chevron">▾</span>
+    </div>
+    <div class="nav-sub"></div>
+
+    <div class="nav-item active" onclick="abrirVideos()">
+      <span class="nav-icon">🎬</span>
+      <span class="nav-label">VIDEOS</span>
+    </div>
+  </nav>
+
+  <div class="sidebar-user">
+    <div class="user-avatar">👤</div>
+    <div>
+      <div class="user-name">BRATT</div>
+      <div class="user-branch">Sucursal: 00 - 2026</div>
+    </div>
+  </div>
+</aside>
+
+<div class="page-wrap">
+
+  <header class="header">
+    <span class="header-title">DEMO TNS</span>
+    <span class="header-nit">10987654321</span>
+    <span class="header-icon">🏢</span>
+  </header>
+
+  <div class="breadcrumb">
+    DEMO TNS / <span class="current" id="breadcrumb-current">Videos</span>
+  </div>
+
+  <div class="work-area">
+
+    <div class="video-menu-panel">
+      <div class="video-menu-title">Gestión de videos</div>
+      <div class="video-menu-btn active" id="btn-subir" onclick="setPanel('subir')">
+        <span class="vmb-icon">⬆️</span>
+        <span class="vmb-label">Subir video</span>
+      </div>
+      <div class="video-menu-btn" id="btn-editar" onclick="setPanel('editar')">
+        <span class="vmb-icon">✏️</span>
+        <span class="vmb-label">Editar video</span>
+      </div>
+      <div class="video-menu-btn" id="btn-borrar" onclick="setPanel('borrar')">
+        <span class="vmb-icon">🗑️</span>
+        <span class="vmb-label">Borrar video</span>
+      </div>
+    </div>
+
+    <div class="panel-area">
+
+      <!-- PANEL: Subir video -->
+      <div id="panel-subir">
+        <div class="panel-page-title">Videos <span>TNS</span></div>
+        <div class="form-card">
+          <div class="form-card-title">⬆️ Subir video</div>
+          <div class="fields">
+            <div class="field">
+              <span class="field-label">Título</span>
+              <input class="field-input" id="sub-titulo" type="text" placeholder="Título del video" />
+            </div>
+            <div class="field">
+              <span class="field-label">URL de YouTube</span>
+              <div class="url-wrap">
+                <span class="url-prefix">🔗</span>
+                <input class="field-input" id="sub-url" type="url" placeholder="https://www.youtube.com/watch?v=..." />
+              </div>
+            </div>
+            <div class="field">
+              <span class="field-label">Descripción</span>
+              <textarea class="field-input textarea" id="sub-desc" placeholder="Descripción del video..."></textarea>
+            </div>
+          </div>
+          <div class="action-bar">
+            <button class="btn-cancel" onclick="setPanel('subir')">Cancelar</button>
+            <button class="btn-save" onclick="guardarVideo()">Guardar video</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL: Editar video -->
+      <div id="panel-editar" class="panel-hidden">
+        <div class="panel-page-title">Videos <span>TNS</span></div>
+        <div class="form-card">
+          <div class="form-card-title">✏️ Editar video</div>
+          <div class="field">
+            <span class="field-label">Buscar video por nombre</span>
+            <div class="search-bar">
+              <input
+                class="field-input"
+                type="text"
+                id="edit-search"
+                placeholder="Escribe el nombre y presiona Enter..."
+                onkeydown="if(event.key==='Enter') buscarEditar()"
+              />
+              <button class="btn-save search-btn" onclick="buscarEditar()">🔍</button>
+            </div>
+          </div>
+
+          <div id="edit-result" class="panel-hidden">
+            <div class="result-card">
+              <div class="result-title" id="edit-res-title"></div>
+              <div class="result-meta" id="edit-res-meta"></div>
+              <div class="fields" style="margin-top:14px;">
+                <div class="field">
+                  <span class="field-label">Título</span>
+                  <input class="field-input" type="text" id="edit-titulo" />
+                </div>
+                <div class="field">
+                  <span class="field-label">URL de YouTube</span>
+                  <div class="url-wrap">
+                    <span class="url-prefix">🔗</span>
+                    <input class="field-input" type="url" id="edit-url" />
+                  </div>
+                </div>
+                <div class="field">
+                  <span class="field-label">Descripción</span>
+                  <textarea class="field-input textarea" id="edit-desc"></textarea>
+                </div>
+              </div>
+              <div class="action-bar">
+                <button class="btn-cancel" onclick="cancelarEditar()">Cancelar</button>
+                <button class="btn-warning" onclick="inactivarVideo()">⏸ Inactivar video</button>
+                <button class="btn-save" onclick="guardarEdicion()">💾 Guardar cambios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL: Borrar video -->
+      <div id="panel-borrar" class="panel-hidden">
+        <div class="panel-page-title">Videos <span>TNS</span></div>
+        <div class="form-card">
+          <div class="form-card-title">🗑️ Borrar video</div>
+          <div class="field">
+            <span class="field-label">Buscar video por nombre</span>
+            <div class="search-bar">
+              <input
+                class="field-input"
+                type="text"
+                id="del-search"
+                placeholder="Escribe el nombre y presiona Enter..."
+                onkeydown="if(event.key==='Enter') buscarBorrar()"
+              />
+              <button class="btn-save search-btn" onclick="buscarBorrar()">🔍</button>
+            </div>
+          </div>
+
+          <div id="del-result" class="panel-hidden">
+            <div class="result-card">
+              <div class="result-title" id="del-res-title"></div>
+              <div class="result-meta" id="del-res-meta"></div>
+              <div class="result-fields" style="margin-top:14px;">
+                <div class="result-field-row">
+                  <span class="result-field-label">Título</span>
+                  <div class="result-field-val" id="del-titulo"></div>
+                </div>
+                <div class="result-field-row">
+                  <span class="result-field-label">URL de YouTube</span>
+                  <div class="result-field-val" id="del-url"></div>
+                </div>
+                <div class="result-field-row">
+                  <span class="result-field-label">Descripción</span>
+                  <div class="result-field-val" id="del-desc"></div>
+                </div>
+              </div>
+              <div class="action-bar">
+                <button class="btn-cancel" onclick="cancelarBorrar()">Cancelar</button>
+                <button class="btn-danger" onclick="pedirConfirmacion()">🗑️ Borrar video</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal confirmación -->
+<div class="confirm-overlay panel-hidden" id="confirm-overlay">
+  <div class="confirm-box">
+    <div class="confirm-icon">⚠️</div>
+    <div class="confirm-title">¿Confirmar eliminación?</div>
+    <div class="confirm-sub">
+      Esta acción no se puede deshacer.<br/>
+      El video será eliminado permanentemente del sistema.
+    </div>
+    <div class="confirm-btns">
+      <button class="btn-cancel" onclick="cerrarConfirmacion()">Cancelar</button>
+      <button class="btn-danger" onclick="confirmarBorrar()">🗑️ Sí, borrar</button>
+    </div>
+  </div>
+</div>
+
+<button class="fab">✨</button>
+
+<script src="js/SubirVideo.js"></script>
+</body>
+</html>

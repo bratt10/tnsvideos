@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TNS - Login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <div class="logo">
+        <span class="logo-text">tns</span>
+    </div>
+
+    <div class="card">
+        <input type="number" id="Nit" placeholder="Nit"/>
+        <input type="text" id="Usuario" placeholder="Usuario"/>
+        <input type="password" id="Contraseña" placeholder="Contraseña"/>
+    </div>
+
+    <div class="extras">
+        <div class="toggle" id="toggle" onclick="this.classList.toggle('on')">
+            <div class="toggle-circle"></div>
+        </div>
+        <span class="extras-label">Recordarme</span>
+    </div>
+
+    <button class="btn-ingresar" onclick="ingresar()">Ingresar</button>
+    <p class="error" id="error"></p>
+    <span class="forgot">🔒 ¿Olvidaste tu contraseña?</span>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

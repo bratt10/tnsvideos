@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TNS - Crecemos, haciéndote crecer</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav>
+  <a href="#" class="nav-logo">
+    <!--
+      LOGO: coloca tu imagen en img/logotipo.webp
+      Descomenta esto y borra el bloque svg+span de abajo:
+    -->
+    <!-- <img src="img/logotipo.webp" alt="TNS"> -->
+    <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="14" r="7" stroke="#1abcb0" stroke-width="2.5"/>
+      <path d="M8 34c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#1abcb0" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="20" cy="14" r="3" fill="#1abcb0"/>
+    </svg>
+    <span class="nav-logo-text">tns</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#">Nosotros</a></li>
+
+    <!-- ══ DROPDOWN DESCARGAS ══ -->
+    <li class="nav-dropdown">
+      <a href="#" class="nav-dropdown-toggle">Descargas</a>
+      <div class="dropdown-menu">
+        <div class="dropdown-col">
+          <div class="dropdown-col-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Versiones
+          </div>
+          <!-- Cambia los href por las rutas que me indiques -->
+          <a href="#" class="dropdown-link">Sector privado</a>
+          <a href="#" class="dropdown-link">Sector oficial</a>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-col">
+          <div class="dropdown-col-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            Manuales
+          </div>
+          <a href="manualprivado.html" class="dropdown-link">Sector privado</a>
+          <a href="#" class="dropdown-link">Sector oficial</a>
+          <a href="#" class="dropdown-link">Generales</a>
+        </div>
+      </div>
+    </li>
+
+    <li><a href="#">Aprende</a></li>
+    <li><a href="#">API</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a href="login.html" class="nav-ingresar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+      Ingresar
+    </a>
+    <a href="#" class="btn-empezar">Empezar</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-left">
+    <h1 class="hero-title">¡Crecemos, haciéndote<br>crecer!</h1>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">5,170</div>
+        <div class="stat-label">Clientes<br>Emitiendo</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">+83M</div>
+        <div class="stat-label">Facturas<br>Emitidas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">+105B</div>
+        <div class="stat-label">$COP<br>Facturados</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-circle"></div>
+    <div class="hero-img-wrap">
+    <img src="img/carousel-2.png" alt="Portal TNS" class="hero-dashboard">
+      <div class="hero-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1abcb0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+        Tu información en la nube
+      </div>
+    </div>
+
+    <div class="hero-dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURES ══ -->
+<section class="features">
+  <div class="feature-item">
+    <div class="feature-icon gray">
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M48 38H16a12 12 0 0 1 0-24h1.1A16 16 0 0 1 48 26" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16 38h32" stroke-linecap="round"/>
+        <path d="M26 38v6M38 38v6" stroke-linecap="round"/>
+        <line x1="20" y1="44" x2="44" y2="44" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="feature-title">Ecología y economía</div>
+    <div class="feature-desc">Desconecte ese servidor "tragaluz" y empiece a trabajar de una forma limpia, en la nube.</div>
+  </div>
+
+  <div class="feature-item">
+    <div class="feature-icon gray">
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="16" width="44" height="32" rx="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="18" y1="28" x2="38" y2="28" stroke-linecap="round"/>
+        <line x1="18" y1="36" x2="30" y2="36" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="feature-title">Pagos en línea</div>
+    <div class="feature-desc">Dígale adiós a las conciliaciones manuales. Con nuestros pagos en línea, digitar recibos es cosa del pasado.</div>
+  </div>
+
+  <div class="feature-item">
+    <div class="feature-icon teal">
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="26" cy="22" r="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10 50c0-8.837 7.163-16 16-16" stroke-linecap="round"/>
+        <path d="M44 32v16M36 40h16" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="feature-title">Trabaja con nosotros</div>
+    <div class="feature-desc">Buscamos personas altamente competitivas, que trabajen en equipo y tengan un profundo sentido de responsabilidad social.</div>
+  </div>
+</section>
+
+<!-- ══ ¿POR DÓNDE EMPIEZO? ══ -->
+<section class="how-section">
+  <div class="how-left">
+    <h2>¿Por dónde empiezo?</h2>
+    <p>Creamos una lista de reproducción en donde vamos paso a paso explorando las funcionalidades que debe tener un software para ser realmente integrado.</p>
+    <ul class="how-checklist">
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+        Crea una cuenta Demo
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+        Crea los roles y tus usuarios
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+        Parametriza tu contabilidad y empieza a facturar
+      </li>
+    </ul>
+  </div>
+  <div class="how-right">
+    <div class="how-placeholder">
+    </div>
+    <div class="how-right-overlay">
+      <div class="play-btn" id="playBtn">
+        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<button class="floating-btn">Desconectado</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

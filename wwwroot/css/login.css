@@ -1,0 +1,119 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #2b2f35;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2rem;
+}
+
+.logo-text {
+    font-size: 48px;
+    font-weight: 400;
+    background: linear-gradient(135deg, #1dc99a, #0891b2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card {
+    width: 380px;
+    background: #3a3f47;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.card input {
+    width: 100%;
+    padding: 14px 16px;
+    background: #3a3f47;
+    border: none;
+    border-bottom: 0.5px solid #4a5060;
+    color: #c8cdd6;
+    font-size: 15px;
+    outline: none;
+
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+}
+
+.card input::-webkit-inner-spin-button,
+.card input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.card input::placeholder { color: #7a8090; }
+.card input:focus { background: #42474f; }
+
+.extras {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1rem;
+    width: 380px;
+}
+
+.toggle {
+    width: 36px;
+    height: 20px;
+    background: #555c6a;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-circle {
+    width: 16px;
+    height: 16px;
+    background: #8a92a0;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: left 0.2s;
+}
+
+.toggle.on { background: #1dc99a; }
+.toggle.on .toggle-circle { left: 18px; background: white; }
+
+.extras-label { font-size: 14px; color: #9aa0ad; }
+
+.btn-ingresar {
+    width: 380px;
+    margin-top: 1rem;
+    padding: 14px;
+    background: #1dc99a;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-ingresar:hover { background: #19b389; }
+
+.forgot {
+    margin-top: 1rem;
+    font-size: 13px;
+    color: #9aa0ad;
+    cursor: pointer;
+}
+
+.error {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-top: 0.5rem;
+    display: none;
+}
+

@@ -1,0 +1,81 @@
+/* ══ PÁGINA MANUALES SECTOR PRIVADO ══ */
+
+.manual-main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 60px 40px 100px;
+}
+
+.manual-title {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.manual-section {
+  margin-bottom: 48px;
+}
+
+.manual-group-title {
+  display: flex;
+  margin-left: -250px;
+  gap: 10px;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+
+.manual-group-title svg {
+  color: var(--navy);
+  flex-shrink: 0;
+}
+
+.manual-list {
+  list-style: none;
+  padding: 0;
+  padding-right: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.manual-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.manual-list li::before {
+  content: '';
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+}
+
+.manual-list a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--teal);
+  line-height: 1.4;
+  transition: opacity 0.2s;
+}
+
+.manual-list a:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+/* Link activo en navbar */
+.active-link {
+  color: var(--teal) !important;
+}
+.manual-list {
+  margin-left: -250px;
+  
+}

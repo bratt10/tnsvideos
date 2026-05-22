@@ -10,10 +10,18 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
-// Registra tu servicio
+// ← CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
 builder.Services.AddScoped<VideoServices>();
 builder.Services.AddScoped<VideosRepository>();
 
+builder.Services.AddScoped<AsesoramarketingService>();
+builder.Services.AddScoped<AsesoraMarkentingRepository>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -26,8 +34,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseStaticFiles(); 
+
+app.UseStaticFiles();
 app.UseHttpsRedirection();
+
+app.UseCors("AllowAll"); 
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TNS — Dashboard</title>
+  <link rel="stylesheet" href="css/DashBoard.css" />
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-wrap">
+      <div class="logo-circle">⚡</div>
+      <span class="logo-text">tns</span>
+    </div>
+    <button class="hamburger">☰</button>
+  </div>
+
+  <nav class="nav">
+
+    <div class="nav-item" onclick="toggle(this)">
+      <span class="nav-icon">🗂️</span>
+      <span class="nav-label">TABLAS</span>
+      <span class="nav-chevron">▾</span>
+    </div>
+    <div class="nav-sub">
+      <div class="nav-sub-item">Clientes</div>
+      <div class="nav-sub-item">Proveedores</div>
+    </div>
+
+    <div class="nav-item" onclick="toggle(this)">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">CONTABILIDAD</span>
+      <span class="nav-chevron">▾</span>
+    </div>
+    <div class="nav-sub">
+      <div class="nav-sub-item">Cuentas</div>
+      <div class="nav-sub-item">Balances</div>
+    </div>
+
+    <div class="nav-item" onclick="toggle(this)">
+      <span class="nav-icon">💲</span>
+      <span class="nav-label">FACTURACIÓN</span>
+      <span class="nav-chevron">▾</span>
+    </div>
+    <div class="nav-sub">
+      <div class="nav-sub-item">Facturas</div>
+      <div class="nav-sub-item">Cotizaciones</div>
+    </div>
+
+    <div class="nav-item" onclick="toggle(this)">
+      <span class="nav-icon">💼</span>
+      <span class="nav-label">CARTERA</span>
+      <span class="nav-chevron">▾</span>
+    </div>
+    <div class="nav-sub">
+      <div class="nav-sub-item">Por cobrar</div>
+      <div class="nav-sub-item">Por pagar</div>
+    </div>
+
+    <div class="nav-item" onclick="toggle(this)">
+      <span class="nav-icon">📦</span>
+      <span class="nav-label">INVENTARIO</span>
+      <span class="nav-chevron">▾</span>
+    </div>
+    <div class="nav-sub">
+      <div class="nav-sub-item">Stock</div>
+      <div class="nav-sub-item">Movimientos</div>
+    </div>
+
+    <div class="nav-item" onclick="toggle(this)">
+      <span class="nav-icon">💰</span>
+      <span class="nav-label">TESORERÍA</span>
+      <span class="nav-chevron">▾</span>
+    </div>
+    <div class="nav-sub">
+      <div class="nav-sub-item">Cajas</div>
+      <div class="nav-sub-item">Bancos</div>
+    </div>
+
+    <div class="nav-item active" onclick="toggle(this)">
+      <span class="nav-icon">🎬</span>
+      <span class="nav-label">VIDEOS</span>
+      <span class="nav-chevron">▾</span>
+    </div>
+    <div class="nav-sub">
+      <div class="nav-sub-item">Subir video</div>
+      <div class="nav-sub-item">Editar video</div>
+      <div class="nav-sub-item">Borrar video</div>
+    </div>
+
+  </nav>
+
+  <div class="sidebar-user">
+    <div class="user-avatar">👤</div>
+    <div>
+      <div class="user-name">BRATT</div>
+      <div class="user-branch">Sucursal: 00 - 2026</div>
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+
+  <header class="header">
+    <span class="header-title">DEMO TNS</span>
+    <span class="header-nit">10987654321</span>
+    <span class="header-icon">🏢</span>
+  </header>
+
+  <div class="content">
+
+    <!-- Próximos cumpleaños -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">🎉 Próximos cumpleaños</span>
+        <button class="btn-green">📄</button>
+      </div>
+      <div class="empty-text">No se han encontrado cumpleaños.</div>
+    </div>
+
+    <!-- Top vendedores -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">📈 Top vendedores</span>
+        <div class="btn-toggle-group">
+          <button class="btn-toggle active">Mes</button>
+          <button class="btn-toggle">Año</button>
+        </div>
+      </div>
+      <div class="podium">
+        <!-- 2do lugar izquierda -->
+        <div class="podium-col">
+          <div class="podium-avatar">👤</div>
+          <div class="podium-name">CONSUMIDOR<br>FINAL</div>
+          <div class="podium-bar"><span class="podium-medal">🥈</span></div>
+        </div>
+        <!-- 1er lugar centro -->
+        <div class="podium-col">
+          <div class="podium-avatar">👤</div>
+          <div class="podium-name">PEDRO<br>PEREZ BASTO</div>
+          <div class="podium-bar"><span class="podium-medal">🥇</span></div>
+        </div>
+        <!-- 3er lugar derecha -->
+        <div class="podium-col">
+          <div class="podium-avatar">👤</div>
+          <div class="podium-name">LUZ<br>BAUTISTA</div>
+          <div class="podium-bar"><span class="podium-medal">🥉</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Col derecha: prueba acida + fecha renovacion + videos -->
+    <div class="col-right">
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">💰 Prueba ácida <span style="font-size:11px;color:var(--text-muted)">ⓘ</span></span>
+        </div>
+        <div class="acid-value">0.12</div>
+        <div class="acid-sub">Riesgo de liquidez</div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">📅 Fecha de renovación</span>
+        </div>
+        <div class="renewal-value">31/12/2024</div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+<!-- FAB -->
+<button class="fab">✨</button>
+
+<script>
+  function toggle(item) {
+    const sub = item.nextElementSibling;
+    if (!sub || !sub.classList.contains('nav-sub')) return;
+    const open = sub.classList.toggle('open');
+    item.querySelector('.nav-chevron').style.transform = open ? 'rotate(180deg)' : '';
+  }
+
+  document.querySelectorAll('.btn-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.closest('.btn-toggle-group').querySelectorAll('.btn-toggle').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

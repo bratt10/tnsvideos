@@ -30,16 +30,16 @@ namespace tnsvideos.Controllers
             }
         }
         [HttpPost("login")]
-        public ActionResult<AsesoraResponseDto> Login([FromBody] LoginDto dto)
+        public ActionResult Login([FromBody] LoginDto dto)
         {
             try
             {
                 var asesora = _asesoraService.Login(dto.NIT, dto.Usuario, dto.Contraseña);
-                return Ok(asesora);
+                return Ok(new { success = true, data = asesora });
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(new { success = false, message = ex.Message });
             }
         }
     }

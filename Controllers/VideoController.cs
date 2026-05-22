@@ -70,5 +70,32 @@ namespace tnsvideos.Controllers
                 return BadRequest(e.Message);
             }
         }
+        [HttpGet("buscar")]
+        public ActionResult<VideoModel> BuscarVideo([FromQuery] string titulo)
+        {
+            try
+            {
+                var video = _videoServices.buscarPorTitulo(titulo);
+                return Ok(video);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+            
+        }
+        [HttpPatch("{id}/inactivar")]
+        public ActionResult<VideoModel> InactivarVideo(int id)
+        {
+            try
+            {
+                var video = _videoServices.inactivarVideo(id);
+                return Ok(video);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

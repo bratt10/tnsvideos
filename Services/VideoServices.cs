@@ -41,7 +41,7 @@ namespace tnsvideos.Services
             {
                 throw new Exception("El video no existe");
             }
-            _videorepository.eliminarVideo(id);
+            _videorepository.eliminarVideo(id); 
         }
         public VideoModel? actualizarVideo(int id, VideoModel videoActualizado)
         {
@@ -59,15 +59,25 @@ namespace tnsvideos.Services
             }
             return _videorepository.actualizarVideo(id, videoActualizado);
         }
-
-        public VideoModel? obtenerVideoPorId(int id)
+        public VideoModel? buscarPorTitulo(string titulo)
         {
-            var video = _videorepository.obtenerVideoPorId(id);
+            if (string.IsNullOrWhiteSpace(titulo))
+                throw new Exception("Debes ingresar un nombre para buscar");
+
+            var video = _videorepository.obtenerVideoPorTitulo(titulo);
             if (video == null)
+                throw new Exception("No se encontró ningún video con ese nombre");
+
+            return video;
+        }
+        public VideoModel? inactivarVideo(int id)
+        {
+            if (!_videorepository.existeVideo(id))
             {
                 throw new Exception("El video no existe");
             }
-            return video;
+
+            return _videorepository.inactivarVideo(id);
         }
     }
 }
